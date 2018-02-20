@@ -41,14 +41,12 @@ class TestCasesForPen(unittest.TestCase):
 	def test_init_invalid_color(self):
 		self.assertRaises(ValueError, p.Pen, color=25)
 
-
 #Check get_color
 	@data ('blue', 'red', 'white', 'green')
 	def test_get_color_should_return_color(self, color):
 		pen=p.Pen()
 		pen.color=color
 		self.assertEqual(pen.get_color(), color)
-
 
 #Check check_pen_state is True
 	@data (1000, 10, 0.5)
@@ -62,7 +60,6 @@ class TestCasesForPen(unittest.TestCase):
 		pen=p.Pen(ink_container_value = value, size_letter=2.0, color='red')
 		self.assertFalse(pen.check_pen_state())
 
-	
 #Check do_something_else
 	def test_do_something_else_should_return_red(self):
 		pen = p.Pen(color='red')                
@@ -74,7 +71,6 @@ class TestCasesForPen(unittest.TestCase):
 		f.close()
 		os.remove('.\\file.txt')
 		self.assertEqual(a, "red\n")
-
 
 #Check write
 	@data (-5, 0)
@@ -100,8 +96,6 @@ class TestCasesForPen(unittest.TestCase):
 		pen=p.Pen(size_letter=2, ink_container_value=10)
 		self.assertEqual(pen.write('python'), "pytho")
 		self.assertEqual(pen.ink_container_value, 0.0)
-
-
 
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestCasesForPen)
